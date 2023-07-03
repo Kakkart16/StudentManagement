@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% comment %} {% include 'messages.html' %} {% endcomment %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            margin-top: 100px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom:5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            display: block;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        </style>
+</head>
+<body>
+    <div class = "container">
+        
+        <h1>Enter Student Marks</h1>
+        <form method="POST" action="{% url 'students:student_marks_create' %}" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.student.id_for_label }}">Student:</label>
+                {{ form.student }}
+            </div> 
+            <div class="form-group">
+                <label for="{{ form.subject.id_for_label }}">Subject Id:</label>
+                {{ form.subject }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.marks.id_for_label }}">Marks:</label>
+                {{ form.marks }}
+            </div>
+            <button type="submit" class="btn-submit" >Save</button>
+        </form>
+    </div>
+</body>
+</html>
