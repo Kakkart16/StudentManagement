@@ -2,8 +2,25 @@
 <html>
 <head>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h1{
+            text-align:center;
+        }
+        .container {
+            margin-top: 100px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
         .form-group {
-        margin-bottom: 20px;
+            margin-bottom: 20px;
         }
         
         label {
@@ -11,12 +28,13 @@
             font-weight: bold;
         }
         
-        input[type="text"],select {
-            width: 100%;
-            padding: 8px;
+        input[type="text"],input[type="number"],
+        select {
+            width: 95%;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-        }
+        } 
         
         button {
             padding: 10px 20px;
@@ -30,22 +48,24 @@
         </style>
 </head>
 <body>
-    <h1>Edit Student Marks</h1>
-    <form method="POST" action="{% url 'students:student_marks_update' student_marks.pk %}">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="{{ form.student.id_for_label }}">Student:</label>
-            {{ form.student }}
-        </div>
-        <div class="form-group">
-            <label for="{{ form.subject.id_for_label }}">Subject:</label>
-            {{ form.subject }}
-        </div>
-        <div class="form-group">
-            <label for="{{ form.marks.id_for_label }}">Marks:</label>
-            {{ form.marks }}
-        </div>
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
+    <div class="container">
+        <h1>Edit Student Marks</h1>
+        <form method="POST" action="{% url 'students:student_marks_update' student_marks.pk %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.student.id_for_label }}">Student:</label>
+                {{ form.student }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.subject.id_for_label }}">Subject:</label>
+                {{ form.subject }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.marks.id_for_label }}">Marks:</label>
+                {{ form.marks }}
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
 </body>
 </html>

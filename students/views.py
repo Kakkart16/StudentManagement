@@ -32,8 +32,12 @@ def update_student(request, pk):
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            messages(request,'Updated Successfully')
+            messages.success(request,'Updated Successfully')
             return redirect('students:student_list')
+        else:
+            messages.error(request,'Updation Failed')
+            messages.error(request,form.errors)
+            
     else:
         form = StudentForm(instance=student)
     return render(request, 'update_student.html', {'form': form})
@@ -59,7 +63,8 @@ def create_subject(request):
             messages.success(request, 'Subject added successfully.')
             return redirect('students:subject_list')
         else:
-            messages.error(request, ' Task Unsuccessfully. Retry!!!')
+            messages.error(request, ' Task Unsuccessfull. Retry!!!')
+            messages.error(request, form.errors)
     else:
         form = SubjectForm()
     return render(request, 'create_subject.html', {'form': form})
@@ -70,7 +75,11 @@ def update_subject(request, subject_id):
         form = SubjectForm(request.POST, instance=subject)
         if form.is_valid():
             form.save()
+            messages.success(request,'Updation Successful')
             return redirect('students:subject_list')
+        else:
+            messages.error(request,'Updation Failed')
+            messages.error(request,form.errors)
     else:
         form = SubjectForm(instance=subject)
     return render(request, 'update_subject.html', {'form': form})
@@ -110,6 +119,9 @@ def student_marks_update(request, pk):
             form.save()
             messages.success(request, 'Marks updated successfully.')
             return redirect('students:student_marks_list')
+        else:
+            messages.error(request,'Updation Failed')
+            messages.error(request,form.errors)
     else:
         form = StudentMarksForm(instance=student_marks)
     return render(request, 'student_marks_update.html', {'form': form, 'student_marks': student_marks})

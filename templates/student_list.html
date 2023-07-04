@@ -94,12 +94,13 @@
                 <th>Phone Number</th>
                 <th>Age</th>
                 <th>Actions</th>
+                <th>Performance</th>
             </tr>
             {% for student in students %}
                 <tr>
                     <td>{{ student.student_id }}</td>
                     <td>
-                        <a href="{% url 'students:student_performance' student.student_id %}" >{{ student.name }}</a>
+                        {{ student.name }}
                     </td>
                     <td>{{ student.address }}</td>
                     <td>{{ student.phone_number }}</td>
@@ -107,6 +108,9 @@
                     <td>
                         <a href="{% url 'students:update_student' student.pk %}" class="update-btn">Update</a>
                         <a href="{% url 'students:delete_student' student.pk %}" class="delete-btn">Delete</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'students:student_performance' student.student_id %}"><img src="https://static-00.iconduck.com/assets.00/arrow-right-circle-icon-512x512-2p1e2aaw.png" widht="40px" height="20px"></a>
                     </td>
                 </tr>
             {% endfor %}

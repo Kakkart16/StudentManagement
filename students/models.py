@@ -14,10 +14,10 @@ class Student(models.Model):
 
 class Subject(models.Model):
     subject_id = models.CharField(max_length=4, primary_key=True)
-    name = models.CharField(max_length=100)
+    subject_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.subject_id + " - " + self.name
+        return self.subject_id + " - " + self.subject_name
 
 class StudentMarks(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)

@@ -7,13 +7,20 @@
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
         }
-
+        .container {
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1400px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
         h1 {
-            margin-top:40px;
+            margin-top:20px;
             text-align: center;
             color: #333;
         }
-
         table {
             width: 80%;
             border-collapse: collapse;
@@ -24,23 +31,22 @@
             margin-right: auto;
         }
         th{
-            padding: 10px;
+            padding: 5px;
             text-align: center;
-            border : 5px solid #ccc;
+            border : 3px solid #ccc;
             background-color: #f2f2f2;
             font-weight: bold;
         }
         td {
-            padding: 10px;
+            padding: 5px;
             text-align: center;
-            border : 5px solid #ccc;
+            border : 3px solid #ccc;
         }
         a{
             text-decoration: none;
             color: #333;
             padding:10px;
         }
-
         .add-btn {
             display: inline-block;
             background-color: #4caf50;
@@ -71,30 +77,32 @@
     </style>
 </head>
 <body>
-    <h1>Student Marks</h1>
-    <table class = "center">
-        <thead>
-        <tr>
-            <th>Student</th>
-            <th>Subject</th>
-            <th>Marks</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for student_mark in student_marks %}
+    <div class="container">
+        <h1>Student Marks</h1>
+        <table class = "center">
+            <thead>
             <tr>
-                <td>{{ student_mark.student.student_id }}. {{student_mark.student.name}}</td>
-                <td>{{ student_mark.subject.subject_id }}</td>
-                <td>{{ student_mark.marks }}</td>
-                <td>
-                    <a href="{% url 'students:student_marks_update' student_mark.pk %}" class="update-btn">Update</a>
-                    <a href="{% url 'students:student_marks_delete' student_mark.pk %}" class="delete-btn">Delete</a>
-                </td>
+                <th>Student</th>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Actions</th>
             </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'students:student_marks_create' %}" class = "add-btn">Add Student Marks</a>
+            </thead>
+            <tbody>
+                {% for student_mark in student_marks %}
+                <tr>
+                    <td>{{ student_mark.student.student_id }}. {{student_mark.student.name}}</td>
+                    <td>{{ student_mark.subject.subject_id }}</td>
+                    <td>{{ student_mark.marks }}</td>
+                    <td>
+                        <a href="{% url 'students:student_marks_update' student_mark.pk %}" class="update-btn">Update</a>
+                        <a href="{% url 'students:student_marks_delete' student_mark.pk %}" class="delete-btn">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'students:student_marks_create' %}" class = "add-btn">Add Student Marks</a>
+    </div>
 </body>
 </html>

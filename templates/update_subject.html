@@ -72,10 +72,15 @@
             {% csrf_token %}
             <div class="form-group">
                 <label for="id_subject_id">Subject_ID:</label>
-                <input type="text" id="id_subject_id" name="subject_id" value="{{subject.subject_id}}" required>
-                <label for="id_name">Name:</label>
-                <input type="text" id="id_name" name="name" value="{{ subject.name }}" required>
+                {{form.subject_id}}
+                {% comment %} <input type="text" id="id_subject_id" name="subject_id" value="{{subject.subject_id}}" required> {% endcomment %}
             </div>
+            <div class="form-group">
+                <label for="id_subject_name">Name:</label>
+                {{form.subject_name}}
+                {% comment %} <input type="text" id="id_name" name="name" value="{{ subject.name }}" required>s {% endcomment %}
+            </div>
+
             <input type="submit" value="Save" class="btn-submit">
         </form>
     </div>
