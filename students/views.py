@@ -6,6 +6,9 @@ from django.contrib import messages
 
 # Student Table CRUD operations.
 
+def dashboard(request):
+    return render(request,'home.html',);
+
 def student_list(request):
     students = Student.objects.all()
     return render(request, 'student_list.html', {'students': students})

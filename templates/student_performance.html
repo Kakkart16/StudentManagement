@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Student Performance</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,22 +14,27 @@
             margin-top: 100px;
             margin-left: auto;
             margin-right: auto;
-            max-width: 800px;
+            max-width: 600px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
         }
 
         h2,p {
-            text-align: left;
+            text-align: center;
             margin-bottom: 10px;
             font-size:20px;
         }
 
         table {
-            width: 100%;
+            width: 80%;
             border-collapse: collapse;
             margin-bottom:20px;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
         }
 
         th, td {
@@ -56,9 +63,13 @@
     </style>
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="{% url 'students:student_list' %}">Students</a>
+        <a href="{% url 'students:subject_list'  %}">Subjects</a>
+    </div>
     <div class = "container">
-        <p>Performance for <b>{{ student.name }}</b><p>
-        <table>
+        <p class="center">Performance for <b>{{student.student_id}}. {{ student.name }}</b><p>
+        <table class="center">
             <thead>
             <tr>
                 <th>Subject</th>

@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    {% include 'messages.html' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,6 +78,11 @@
     </style>
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="{% url 'students:student_list' %}">Students</a>
+        <a href="{% url 'students:subject_list'  %}">Subjects</a>
+    </div>
+    {% include 'messages.html' %}
     <div class="container">
         <h1>Student Marks</h1>
         <table class = "center">

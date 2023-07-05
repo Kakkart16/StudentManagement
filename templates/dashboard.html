@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
+    <style>
+        .titlebar{
+            background: #008B8B;
+            color:#FFFFFF;
+            overflow: hidden;
+            padding: 8px;
+        }
+        .container {
+            margin-top:50px;
+            max-width:100%;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="titlebar">
+        <h1>STUDENT MANAGEMENT SYSTEM</h1>
+    </div>
+    <!--<div class="topnav">
+        <a class="active" href="{% url 'students:student_list' %}">Students</a>
+        <a href="{% url 'students:subject_list'  %}">Subjects</a>
+    </div>-->
+    <div class="container">
+        <a href="{% url 'students:student_list' %}" ><img src="{% static 'images/icon.jpg' %}" width=300 height=300 alt="students"></a>
+        <a href="{% url 'students:subject_list' %}"><img src="{% static 'images/sub.png' %}" width=300 height=300 alt="subjects"></a>
+
+    </div>
+</body>
+</html>

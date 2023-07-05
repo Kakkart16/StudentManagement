@@ -1,0 +1,59 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Student Management System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'students:student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:subject_list' %}">Subjects</a></li>
+            <li><a href="{% url 'students:student_marks_list' %}">Student Marks</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>About</h2>
+            <p>
+                Welcome to the Student Management System!
+                <br>
+                Our website is dedicated to simplifying the management of student information, subjects, and marks for educational institutions. 
+                We understand the challenges faced by schools and colleges in handling and organizing vast amounts of student data. 
+                Our Student Management System provides a comprehensive solution to streamline these processes and improve efficiency.
+                The Student Management System is a web-based application designed to streamline and automate the management of student information, subjects, and marks. 
+                It provides an efficient and organized platform for educational institutions to manage and track student data effectively.
+                <br>
+                In addition to student records, the system also maintains a comprehensive list of subjects offered by the institution. 
+                Each subject is associated with a subject ID and a name, allowing for easy identification and organization.
+                Furthermore, the system enables the recording of student marks for each subject. 
+                The student_marks table links the student ID, subject ID, and marks, providing a relational structure to track and manage student performance.
+                <br>
+                The Student Management System incorporates functionalities for CRUD operations (Create, Read, Update, Delete) on student records and subjects.
+            </p>
+        </section>
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>Manage student information</li>
+                <li>Track subjects and marks</li>
+                <li>View student performance</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Contact</h2>
+            <p>Email: kakkartushar55@gmail.com</p>
+            <p>Phone: 1234567890</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Student Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

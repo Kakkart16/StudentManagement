@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     {% include 'messages.html' %}
 
     <title>Subject List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +14,7 @@
         }
 
         .container {
-            margin-top: 100px;
+            margin-top: 30px;
             margin-left: auto;
             margin-right: auto;
             max-width: 800px;
@@ -50,8 +53,9 @@
             text-decoration: none;
             cursor: pointer;
             font-size: 16px;
-            margin-right: 10px;
+            {% comment %} margin-right: 10px; {% endcomment %}
             margin-left: 80%;
+            margin-bottom:8px;
         }
         .delete-btn {
             background-color: #f44336;
@@ -79,6 +83,10 @@
     </style>
 </head>
 <body>
+    <div class="topnav">
+        <a href="{% url 'students:student_list' %}">Students</a>
+        <a class="active" href="{% url 'students:subject_list'  %}">Subjects</a>
+    </div>
     <div class="container">
         <h1>Subject List</h1>
         <table >
@@ -101,6 +109,7 @@
         </table>
         <form action="{% url 'students:create_subject' %}" method="get">
             <input type="submit" value="Add New Subject" class="add-btn">
+            <a href="{% url 'students:student_marks_list' %}" class="add-btn">Add Marks</a>
         </form>
     </div>
 </body>

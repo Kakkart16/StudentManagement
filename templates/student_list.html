@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    {% include 'messages.html' %}
-
     <title>Student List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +12,7 @@
         }
 
         .container {
-            margin-top: 75px;
+            margin-top: 30px;
             margin-left: auto;
             margin-right: auto;
             max-width: 1400px;
@@ -63,6 +64,7 @@
             cursor: pointer;
             font-weight: bold;
             margin-left: 75%;
+            margin-bottom:20px
         }
         .delete-btn {
             background-color: #f44336;
@@ -84,6 +86,11 @@
     </style>
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="{% url 'students:student_list' %}">Students</a>
+        <a href="{% url 'students:subject_list'  %}">Subjects</a>
+    </div>
+    {% include 'messages.html' %}
     <div class="container">
         <h1>Student List</h1>
         <table class="center">
